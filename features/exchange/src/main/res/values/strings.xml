@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="try_again">Tente novamente\n</string>
+
+    <!--Exchange List-->
+    <string name="exchange_list_item_name">Name:</string>
+    <string name="exchange_list_item_id">Exchange ID:</string>
+    <string name="exchange_list_item_volume_1_day">Volume 1 Day:</string>
+
+    <!--Exchange Detail-->
+    <string name="exchange_details_header_title">Exchange Details</string>
+    <string name="exchange_detail_name">Name:</string>
+    <string name="exchange_detail_website">Website:</string>
+    <string name="exchange_detail_id">Exchange ID:</string>
+    <string name="exchange_detail_volume_1_hour">Volume 1 Hour USD:</string>
+    <string name="exchange_detail_volume_1_day">Volume 1 Day USD:</string>
+    <string name="exchange_detail_volume_1_month">Volume 1 Month USD:</string>
+
+
+    <!--Common-->
+    <string name="exchange_list_no_result">No Results</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="ok">Ok</string>
+    <string name="back_button">Back button</string>
+</resources>
