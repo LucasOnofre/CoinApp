@@ -21,7 +21,7 @@ class ExchangeDetailViewModel(
 
     fun getExchangeDetailInfo(exchangeId: String?) {
         exchangeId?.let {
-            getExchangeDetail(it).map {
+            getExchangeDetail.executeUseCase(it).map {
                 _exchangeDetail.wrapResponse(it, false)
             }.catch { _exchangeDetail.value = UIState.UndefinedError(it) }
                 .launchIn(viewModelScope)

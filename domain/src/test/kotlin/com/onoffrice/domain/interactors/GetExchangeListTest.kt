@@ -34,7 +34,7 @@ class GetExchangeListTest {
             emit(ResultWrapper.Success(exchangeDomain))
         }
 
-        interactor.executeUseCase(Unit).collect { result ->
+        interactor.executeUseCase().collect { result ->
             Assert.assertEquals(
                 (result as ResultWrapper.Success).value.get(0).name, exchangeDomain.get(0).name
             )
@@ -47,7 +47,7 @@ class GetExchangeListTest {
             emit(errorMock)
         }
 
-        interactor.executeUseCase(Unit).collect { result ->
+        interactor.executeUseCase().collect { result ->
             Assert.assertEquals(
                 (result as ResultWrapper.Error).error?.error,
                 errorMock.error?.error
