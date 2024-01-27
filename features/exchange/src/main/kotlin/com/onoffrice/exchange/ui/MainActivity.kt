@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,7 +13,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.onoffrice.core.resources.CoinAppTheme
 import com.onoffrice.exchange.ui.detail.ExchangeDetailScreen
-import com.onoffrice.exchange.ui.detail.ExchangeDetailViewModel
 import com.onoffrice.exchange.ui.list.ExchangeListScreen
 
 class MainActivity : AppCompatActivity() {
@@ -39,9 +37,9 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         composable(
-                            Routes.ExchangeDetail.rout + "{selected_exchange}",
+                            Routes.ExchangeDetail.rout + "{$EXCHANGE_DETAIL_ROUTE_ARG}",
                             arguments = listOf(
-                                navArgument("selected_exchange") { type = NavType.StringType },
+                                navArgument(EXCHANGE_DETAIL_ROUTE_ARG) { type = NavType.StringType },
                             )
                         ) { backStackEntry ->
                             ExchangeDetailScreen(

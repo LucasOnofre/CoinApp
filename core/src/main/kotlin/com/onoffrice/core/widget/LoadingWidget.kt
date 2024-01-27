@@ -22,7 +22,7 @@ fun LoadingWidget(
     AnimatedVisibility(visible = loading, enter = fadeIn(), exit = fadeOut()) {
         Box(modifier = modifier.background(color = backgroundColor)) {
             CircularProgressIndicator(
-                color = CoinAppTheme.colors.green006A4D,
+                color = CoinAppTheme.colors.blue,
                 modifier = Modifier.align(progressAlignment)
             )
         }

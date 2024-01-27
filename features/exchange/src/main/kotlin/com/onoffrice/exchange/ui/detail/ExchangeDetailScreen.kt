@@ -33,6 +33,7 @@ import com.onoffrice.core.resources.CoinAppTheme
 import com.onoffrice.core.utils.UIState
 import com.onoffrice.core.widget.LoadingWidget
 import com.onoffrice.exchange.R
+import com.onoffrice.exchange.ui.EXCHANGE_DETAIL_ROUTE_ARG
 import com.onoffrice.exchange.utils.createDialog
 import org.koin.androidx.compose.getViewModel
 
@@ -41,7 +42,7 @@ fun ExchangeDetailScreen(
     navController: NavHostController,
     backStackEntry: NavBackStackEntry
 ) {
-    val selectedExchange = backStackEntry.arguments?.getString("selected_exchange")
+    val selectedExchange = backStackEntry.arguments?.getString(EXCHANGE_DETAIL_ROUTE_ARG)
 
     val context = LocalContext.current
     val viewModel: ExchangeDetailViewModel = getViewModel()
@@ -58,7 +59,7 @@ fun ExchangeDetailScreen(
                     Text(stringResource(R.string.exchange_details_header_title))
                 },
                 contentColor = CoinAppTheme.colors.white,
-                backgroundColor = CoinAppTheme.colors.green006A4D,
+                backgroundColor = CoinAppTheme.colors.blue,
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(

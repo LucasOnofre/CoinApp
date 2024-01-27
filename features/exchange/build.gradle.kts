@@ -40,4 +40,9 @@ dependencies {
     implementation(ComposeDependencies.compose_accompanist)
 
     implementation(DependencyInjectionDependencies.koin_compose)
+
+    testImplementation(TestDependencies.junit)
+    testImplementation(TestDependencies.mockk)
+    testImplementation(TestDependencies.coroutines_test)
+    testImplementation(TestDependencies.arch)
 }

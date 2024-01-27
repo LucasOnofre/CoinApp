@@ -23,7 +23,7 @@ class ExchangeListViewModel(
     val exchangeList = _exchangeList.asStateFlow()
 
     private fun getExchangeList() {
-        getExchange(Unit).map {
+        getExchange.executeUseCase().map {
             _exchangeList.wrapResponse(it, false)
 
         }.catch { _exchangeList.value = UIState.UndefinedError(it) }.launchIn(viewModelScope)

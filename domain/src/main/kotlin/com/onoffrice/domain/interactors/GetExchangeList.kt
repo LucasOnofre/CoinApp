@@ -6,9 +6,8 @@ import com.onoffrice.domain.repository.ExchangeRepository
 import com.onoffrice.domain.utils.WrapperUseCase
 import kotlinx.coroutines.flow.Flow
 
-class GetExchangeList(private val repository: ExchangeRepository) :
-    WrapperUseCase<Unit, List<Exchange>>() {
-    override fun executeUseCase(requestValues: Unit): Flow<ResultWrapper<List<Exchange>>> {
+class GetExchangeList(private val repository: ExchangeRepository) {
+    fun executeUseCase(): Flow<ResultWrapper<List<Exchange>>> {
         return repository.getExchangeList()
     }
 }
