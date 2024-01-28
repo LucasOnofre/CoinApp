@@ -6,6 +6,6 @@ import com.onoffrice.domain.utils.ResultWrapper
 import kotlinx.coroutines.flow.Flow
 
 interface ExchangeRepository {
-    fun getExchangeList(): Flow<ResultWrapper<List<Exchange>>>
-    fun getExchangeDetail(exchangeId: String): Flow<ResultWrapper<List<ExchangeDetail>>>
+    suspend fun getExchangeList(): Flow<ResultWrapper<List<Exchange>>>
+    suspend fun getExchangeDetail(exchangeId: String): Flow<ResultWrapper<List<ExchangeDetail>>>
 }

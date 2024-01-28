@@ -1,53 +1,39 @@
 package com.onoffrice.core.extensions
 
-import android.os.Handler
-import android.os.Looper
 import com.onoffrice.core.utils.UIState
 import com.onoffrice.domain.utils.ResultWrapper
 import kotlinx.coroutines.flow.MutableStateFlow
 
 fun <T> MutableStateFlow<UIState<T>>.wrapResponse(
-    resultWrapper: ResultWrapper<T>,
-    forNavigation: Boolean = true
-) {
+    resultWrapper: ResultWrapper<T>) {
     when (resultWrapper) {
         is ResultWrapper.Success -> {
-            handleState(UIState.Success(resultWrapper.value), forNavigation)
+            handleState(UIState.Success(resultWrapper.value))
         }
 
         is ResultWrapper.Error -> {
             val error = resultWrapper.error
-            handleState(UIState.Error(error), forNavigation)
+            handleState(UIState.Error(error))
         }
 
         is ResultWrapper.GenericError -> {
             val error = resultWrapper.error
-            handleState(UIState.GenericError(error), forNavigation)
+            handleState(UIState.GenericError(error))
         }
 
         is ResultWrapper.NetworkError -> {
-            handleState(UIState.NetworkError, forNavigation)
+            handleState(UIState.NetworkError)
         }
 
         is ResultWrapper.UndefinedError -> {
             val throwable = resultWrapper.exception
-            handleState(UIState.UndefinedError(throwable), forNavigation)
+            handleState(UIState.UndefinedError(throwable))
         }
     }
 }
 
 fun <T> MutableStateFlow<UIState<T>>.handleState(
     state: UIState<T>,
-    forNavigation: Boolean
 ) {
-    if (forNavigation) updateState(state, UIState.Idle)
-    else value = state
-}
-
-fun <T> MutableStateFlow<T>.updateState(newValue: T, initialValue: T, delay: Long = 100) {
-    value = newValue
-
-    Handler(Looper.getMainLooper()).postDelayed({
-        value = initialValue
-    }, delay)
+    value = state
 }

@@ -25,7 +25,7 @@ class GetExchangeListTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        interactor = GetExchangeList(repository)
+        interactor = GetExchangeListImpl(repository)
     }
 
     @Test
@@ -34,7 +34,7 @@ class GetExchangeListTest {
             emit(ResultWrapper.Success(exchangeDomain))
         }
 
-        interactor.executeUseCase().collect { result ->
+        interactor.execute().collect { result ->
             Assert.assertEquals(
                 (result as ResultWrapper.Success).value.get(0).name, exchangeDomain.get(0).name
             )
@@ -47,7 +47,7 @@ class GetExchangeListTest {
             emit(errorMock)
         }
 
-        interactor.executeUseCase().collect { result ->
+        interactor.execute().collect { result ->
             Assert.assertEquals(
                 (result as ResultWrapper.Error).error?.error,
                 errorMock.error?.error

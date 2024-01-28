@@ -7,9 +7,12 @@ import org.koin.dsl.module
 
 val exchangeModule = module {
     viewModel {
-        ExchangeListViewModel(getExchange = get())
+        ExchangeListViewModel(
+            getExchange = get(),
+            dispatcher = get()
+        )
     }
     viewModel {
-        ExchangeDetailViewModel(getExchangeDetail = get())
+        ExchangeDetailViewModel(getExchangeDetail = get(), dispatcher = get())
     }
 }

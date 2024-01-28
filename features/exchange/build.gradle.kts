@@ -41,8 +41,14 @@ dependencies {
 
     implementation(DependencyInjectionDependencies.koin_compose)
 
+    implementation(AsyncDependencies.coroutines)
+    implementation(AsyncDependencies.coroutines_android)
+
     testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.mockk)
     testImplementation(TestDependencies.coroutines_test)
     testImplementation(TestDependencies.arch)
+    testImplementation(TestDependencies.turbine)
+    testImplementation(TestDependencies.mockito)
+    testImplementation(TestDependencies.truth)
 }

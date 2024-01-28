@@ -13,6 +13,7 @@ import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
@@ -33,7 +34,7 @@ class ExchangeRepositoryTest {
     }
 
     @Test
-    fun `get exchange list`() = runTest {
+    fun `get exchange list`() = runBlocking {
         coEvery { api.getExchangeList() } returns exchangeResponse
 
         repository.getExchangeList().collect { result ->
@@ -45,7 +46,7 @@ class ExchangeRepositoryTest {
     }
 
     @Test
-    fun `get exchange detail`() = runTest {
+    fun `get exchange detail`() = runBlocking {
         val exchangeID = "exchangeId"
         coEvery { api.getExchangeDetail(exchangeID) } returns exchangeDetailResponse
 

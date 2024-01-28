@@ -5,28 +5,33 @@ import androidx.lifecycle.viewModelScope
 import com.onoffrice.core.extensions.wrapResponse
 import com.onoffrice.core.utils.UIState
 import com.onoffrice.domain.interactors.GetExchangeList
+import com.onoffrice.domain.model.ApiError
 import com.onoffrice.domain.model.Exchange
+import com.onoffrice.domain.utils.DispatcherProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.launch
 
 class ExchangeListViewModel(
-    private val getExchange: GetExchangeList
+    private val getExchange: GetExchangeList,
+    private val dispatcher: DispatcherProvider
 ) : ViewModel() {
-    init {
-        getExchangeList()
-    }
 
     private val _exchangeList = MutableStateFlow<UIState<List<Exchange>>>(UIState.Loading)
     val exchangeList = _exchangeList.asStateFlow()
 
-    private fun getExchangeList() {
-        getExchange.executeUseCase().map {
-            _exchangeList.wrapResponse(it, false)
-
-        }.catch { _exchangeList.value = UIState.UndefinedError(it) }.launchIn(viewModelScope)
+    fun getExchangeList() {
+        viewModelScope.launch(dispatcher.main) {
+            getExchange.execute()
+                .catch {
+                    _exchangeList.value = UIState.Error(ApiError(it.message ?: "Generic Error"))
+                }
+                .flowOn(dispatcher.main)
+                .collect {
+                    _exchangeList.wrapResponse(it)
+                }
+        }
     }
-
 }

@@ -77,6 +77,8 @@ object TestDependencies {
     val junit by lazy { "junit:junit:${TestVersions.junit}" }
     val junit_instrumentation by lazy { "androidx.test.ext:junit:${TestVersions.junit_instrumentation}" }
     val mockk by lazy { "io.mockk:mockk:${TestVersions.mockk}" }
+    val mockito by lazy { "org.mockito:mockito-core:${TestVersions.mockito}" }
+    val truth by lazy { "com.google.truth:truth:${TestVersions.truth}" }
     val mockk_android by lazy { "io.mockk:mockk-android:${TestVersions.mockk}" }
     val coroutines_test by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${TestVersions.coroutines_test}" }
     val espresso by lazy { "androidx.test.espresso:espresso-core:${TestVersions.espresso}" }
@@ -85,4 +87,5 @@ object TestDependencies {
 
     val jUnitCompose by lazy { "androidx.compose.ui:ui-test-junit4:${ComposeVersions.compose_version}" }
     val testManifestCompose by lazy { "androidx.compose.ui:ui-test-manifest:${ComposeVersions.compose_version}" }
+    val turbine by lazy { "app.cash.turbine:turbine:${TestVersions.turbine}" }
 }

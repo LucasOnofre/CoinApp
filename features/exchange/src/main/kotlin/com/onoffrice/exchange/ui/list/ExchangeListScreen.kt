@@ -47,6 +47,10 @@ fun ExchangeListScreen(navController: NavHostController) {
     val viewModel: ExchangeListViewModel = getViewModel()
     val state by viewModel.exchangeList.collectAsState(initial = UIState.Loading)
 
+    LaunchedEffect(key1 = null) {
+        viewModel.getExchangeList()
+    }
+
     CoinAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
