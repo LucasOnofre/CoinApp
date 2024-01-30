@@ -41,7 +41,7 @@ import com.onoffrice.exchange.utils.createDialog
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun ExchangeListScreen(navController: NavHostController) {
+fun ExchangeListScreen(navController: NavHostController?) {
 
     val context = LocalContext.current
     val viewModel: ExchangeListViewModel = getViewModel()
@@ -91,7 +91,7 @@ fun ExchangeListScreen(navController: NavHostController) {
                                     items(items.size) { index ->
                                         val exchange = items[index]
                                         ExchangeItem(exchange = exchange, onSelectExchange = {
-                                            navController.navigate(Routes.ExchangeDetail.rout + exchange.exchangeId)
+                                            navController?.navigate(Routes.ExchangeDetail.rout + exchange.exchangeId)
                                         })
                                     }
                                 }

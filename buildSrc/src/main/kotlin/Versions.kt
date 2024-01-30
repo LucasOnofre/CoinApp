@@ -76,4 +76,6 @@ object TestVersions {
     const val test_core = "1.5.0"
     const val fragment_version = "1.5.7"
     const val turbine = "1.0.0"
+    const val koin_test = "3.1.6"
+    const val mockito_android = "2.22.0"
 }

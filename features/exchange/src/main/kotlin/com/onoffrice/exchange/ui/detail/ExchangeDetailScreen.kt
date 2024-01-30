@@ -26,30 +26,26 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import com.onoffrice.core.extensions.formatCurrency
 import com.onoffrice.core.resources.CoinAppTheme
 import com.onoffrice.core.utils.UIState
 import com.onoffrice.core.widget.LoadingWidget
 import com.onoffrice.exchange.R
-import com.onoffrice.exchange.ui.EXCHANGE_DETAIL_ROUTE_ARG
 import com.onoffrice.exchange.utils.createDialog
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ExchangeDetailScreen(
-    navController: NavHostController,
-    backStackEntry: NavBackStackEntry
+    navController: NavHostController?,
+    selectedExchangeArg: String?
 ) {
-    val selectedExchange = backStackEntry.arguments?.getString(EXCHANGE_DETAIL_ROUTE_ARG)
-
     val context = LocalContext.current
     val viewModel: ExchangeDetailViewModel = getViewModel()
     val state by viewModel.exchangeDetail.collectAsState(initial = UIState.Loading)
 
     LaunchedEffect(key1 = null) {
-        viewModel.getExchangeDetailInfo(selectedExchange)
+        viewModel.getExchangeDetailInfo(selectedExchangeArg)
     }
 
     Scaffold(
@@ -61,7 +57,7 @@ fun ExchangeDetailScreen(
                 contentColor = CoinAppTheme.colors.white,
                 backgroundColor = CoinAppTheme.colors.blue,
                 navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
+                    IconButton(onClick = { navController?.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.back_button)

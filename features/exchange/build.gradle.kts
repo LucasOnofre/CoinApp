@@ -51,4 +51,9 @@ dependencies {
     testImplementation(TestDependencies.turbine)
     testImplementation(TestDependencies.mockito)
     testImplementation(TestDependencies.truth)
+    androidTestImplementation(TestDependencies.jUnitCompose)
+    androidTestImplementation(TestDependencies.testManifestCompose)
+    androidTestImplementation(TestDependencies.koin_test)
+    androidTestImplementation(TestDependencies.koin_test_junit)
+    androidTestImplementation(TestDependencies.mockito_android)
 }

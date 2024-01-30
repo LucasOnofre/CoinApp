@@ -41,10 +41,11 @@ class MainActivity : AppCompatActivity() {
                             arguments = listOf(
                                 navArgument(EXCHANGE_DETAIL_ROUTE_ARG) { type = NavType.StringType },
                             )
-                        ) { backStackEntry ->
+                        ) {
+                            val param = it.arguments?.getString(EXCHANGE_DETAIL_ROUTE_ARG)
                             ExchangeDetailScreen(
-                                backStackEntry = backStackEntry,
-                                navController = navController
+                                navController = navController,
+                                selectedExchangeArg = param
                             )
                         }
                     }

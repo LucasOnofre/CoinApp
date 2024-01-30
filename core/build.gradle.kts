@@ -43,9 +43,4 @@ dependencies {
 
     implementation(SupportDependencies.navigation)
     implementation(NetworkDependencies.gson)
-
-    // Test rules and transitive dependencies:
-    androidTestImplementation(TestDependencies.jUnitCompose)
-    // Needed for createComposeRule, but not createAndroidComposeRule:
-    debugImplementation(TestDependencies.testManifestCompose)
 }
