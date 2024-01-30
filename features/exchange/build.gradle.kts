@@ -28,29 +28,29 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    //Support
     implementation(SupportDependencies.core)
-    implementation(SupportDependencies.material)
-    implementation(SupportDependencies.app_compat)
     implementation(SupportDependencies.navigation)
 
+    //Compose
     implementation(ComposeDependencies.compose_activity)
-    implementation(ComposeDependencies.compose_uitooling)
-    implementation(ComposeDependencies.compose_toolingpreview)
     implementation(ComposeDependencies.compose_material)
     implementation(ComposeDependencies.compose_accompanist)
 
+    //Koin
     implementation(DependencyInjectionDependencies.koin_compose)
 
+    //Coroutines
     implementation(AsyncDependencies.coroutines)
     implementation(AsyncDependencies.coroutines_android)
 
+    //Testing
     testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.mockk)
     testImplementation(TestDependencies.coroutines_test)
     testImplementation(TestDependencies.arch)
     testImplementation(TestDependencies.turbine)
     testImplementation(TestDependencies.mockito)
-    testImplementation(TestDependencies.truth)
     androidTestImplementation(TestDependencies.jUnitCompose)
     androidTestImplementation(TestDependencies.testManifestCompose)
     androidTestImplementation(TestDependencies.koin_test)

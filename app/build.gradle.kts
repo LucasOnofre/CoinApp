@@ -1,10 +1,8 @@
-import androidx.navigation.safe.args.generator.ext.capitalize
 import java.util.Locale
 
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -34,6 +32,4 @@ dependencies {
 
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
-    implementation(FirebaseDependencies.crashlytics)
-    implementation(FirebaseDependencies.analytics)
 }

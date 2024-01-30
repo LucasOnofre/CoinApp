@@ -24,14 +24,17 @@ android {
 dependencies {
     implementation(project(":domain"))
 
+    //Network
     implementation(NetworkDependencies.retrofit)
     implementation(NetworkDependencies.okhttp)
     implementation(NetworkDependencies.gson)
     implementation(NetworkDependencies.gson_converter)
 
+    //Koin
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
 
+    //Testing
     testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.mockk)
     testImplementation(TestDependencies.coroutines_test)
