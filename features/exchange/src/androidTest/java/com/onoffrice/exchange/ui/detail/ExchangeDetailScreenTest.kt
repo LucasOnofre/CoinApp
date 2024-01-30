@@ -44,7 +44,7 @@ class ExchangeDetailScreenTest : KoinTest {
     @Before
     fun setup() {
         composeTestRule.setContent {
-            ExchangeDetailScreen(navController = null, "ExchangeArgs")
+            ExchangeDetailScreen(navController = null, "ExchangeArgsMock")
         }
     }
 
