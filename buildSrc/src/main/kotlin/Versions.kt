@@ -78,4 +78,5 @@ object TestVersions {
     const val turbine = "1.0.0"
     const val koin_test = "3.1.6"
     const val mockito_android = "2.22.0"
+    const val nav_test = "2.22.0"
 }

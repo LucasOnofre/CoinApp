@@ -56,4 +56,5 @@ dependencies {
     androidTestImplementation(TestDependencies.koin_test)
     androidTestImplementation(TestDependencies.koin_test_junit)
     androidTestImplementation(TestDependencies.mockito_android)
+    androidTestImplementation(TestDependencies.nav_test)
 }

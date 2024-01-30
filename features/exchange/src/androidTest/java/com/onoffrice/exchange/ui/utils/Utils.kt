@@ -4,13 +4,13 @@ import com.onoffrice.domain.model.Exchange
 import com.onoffrice.domain.model.ExchangeDetail
 
 val exchangeMock = Exchange(
-    name = "Exchange Name",
+    name = "Name",
     exchangeId = "Exchange ID",
     volume1dayUsd = 1.0
 )
 
 val exchangeDetailMock = ExchangeDetail(
-    name = "Exchange Name",
-    exchangeId = "Exchange ID",
+    name = "Detail Name",
+    exchangeId = "Detail ID",
     volume1dayUsd = 1.0
 )

@@ -91,4 +91,5 @@ object TestDependencies {
     val jUnitCompose by lazy { "androidx.compose.ui:ui-test-junit4:${ComposeVersions.compose_version}" }
     val testManifestCompose by lazy { "androidx.compose.ui:ui-test-manifest:${ComposeVersions.compose_version}" }
     val turbine by lazy { "app.cash.turbine:turbine:${TestVersions.turbine}" }
+    val nav_test by lazy { "androidx.navigation:navigation-testing:${SupportVersions.navigation_version}" }
 }
